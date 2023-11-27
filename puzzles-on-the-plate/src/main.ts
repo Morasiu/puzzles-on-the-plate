@@ -27,7 +27,7 @@ app.use(VueGtag, {
     appName: "Puzzle na talerzu",
     pageTrackerScreenviewEnabled: true,
     config: {id: "G-4425VJFX6X"}
-})
+}, router)
 app.component('font-awesome-icon', FontAwesomeIcon)
 
 app.mount('#app')
