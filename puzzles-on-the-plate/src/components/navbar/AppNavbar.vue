@@ -7,8 +7,8 @@
     <img src="@/assets/logo.png" class="logo" alt="Logo">
     <span class="name">Puzzle na talerzu</span>
     <input type="search" placeholder="np. kurczak curry" class="search">
-    <button class="toggle">
-      <font-awesome-icon :icon="['fas', 'bars']"/>
+    <button class="toggle" aria-label="Show/Hide menu">
+      <font-awesome-icon :icon="['fas', 'bars']"></font-awesome-icon>
     </button>
   </header>
 </template>
