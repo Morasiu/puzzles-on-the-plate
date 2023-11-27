@@ -9,7 +9,8 @@
     <span>Wszystkie prawa zastrzeżone</span>
     <span>Kopiowanie i rozpowszechnianie bez zgody puzzlenatalerzu.pl zabronione</span>
     <br>
-    <a>Strona główna</a>
+    <span>Masz uwagi? Chcesz dodać swój przepis na stronę? Napisz do nas na <a href="mailto:kontakt@puzzlenatalerzu.pl">kontakt@puzzlenatalerzu.pl</a></span>
+    <br>
   </footer>
 </template>
 
