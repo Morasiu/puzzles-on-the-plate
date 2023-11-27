@@ -1,12 +1,10 @@
 <script setup lang="ts">
-import {RouterLink, RouterView} from 'vue-router'
 import AppFooter from "@/components/footer/AppFooter.vue";
+import AppNavbar from "@/components/navbar/AppNavbar.vue";
 </script>
 
 <template>
-  <header>
-    Navbar
-  </header>
+  <AppNavbar />
   <main>
     Wkrótce
   </main>
