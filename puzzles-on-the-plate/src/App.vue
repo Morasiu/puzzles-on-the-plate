@@ -1,15 +1,20 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import {RouterLink, RouterView} from 'vue-router'
+import AppFooter from "@/components/footer/AppFooter.vue";
 </script>
 
 <template>
   <header>
-   Wkrótce
+    Navbar
   </header>
+  <main>
+    Wkrótce
+  </main>
+  <AppFooter/>
 
 </template>
 
 <style scoped>
+
 
 </style>
