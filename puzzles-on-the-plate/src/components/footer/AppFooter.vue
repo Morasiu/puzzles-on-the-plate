@@ -4,7 +4,7 @@
 
 <template>
   <footer class="footer">
-    <img src="@/assets/logo.png" >
+    <img src="@/assets/logo.png"  alt="Logo">
     <span>© 2023 puzzlenatalerzu.pl</span>
     <span>Wszystkie prawa zastrzeżone</span>
     <span>Kopiowanie i rozpowszechnianie bez zgody puzzlenatalerzu.pl zabronione</span>
