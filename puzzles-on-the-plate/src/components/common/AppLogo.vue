@@ -1,7 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 340.2 277.02" style="enable-background:new 0 0 340.2 277.02;" xml:space="preserve">
+<script setup lang="ts">
+
+</script>
+
+<template>
+  <!-- Generator: Adobe Illustrator 28.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+  <svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+       viewBox="0 0 340.2 277.02" style="enable-background:new 0 0 340.2 277.02;" xml:space="preserve">
 <image style="overflow:visible;" width="1890" height="1539" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB2IAAAYDCAMAAAAVOAp6AAAABGdBTUEAALGPC/xhBQAACklpQ0NQ
 c1JHQiBJRUM2MTk2Ni0yLjEAAEiJnVN3WJP3Fj7f92UPVkLY8LGXbIEAIiOsCMgQWaIQkgBhhBAS
 QMWFiApWFBURnEhVxILVCkidiOKgKLhnQYqIWotVXDjuH9yntX167+3t+9f7vOec5/zOec8PgBES
@@ -1163,3 +1167,9 @@ UHXS08pmbbt3Lev1hQLL30y4xB5TtXPDxqpdVTv3VtccMsaYnOyWRZ0KWnfodHbnkN1cAACcotme
 zdV79uwxxpyeV5RTUvLPlnaGT/L/AQUslnqHMy+VAAAAAElFTkSuQmCC" transform="matrix(0.18 0 0 0.18 0 0)">
 </image>
 </svg>
+
+</template>
+
+<style scoped>
+
+</style>
