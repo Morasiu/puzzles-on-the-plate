@@ -6,13 +6,12 @@ import AppNavbar from "@/components/navbar/AppNavbar.vue";
 <template>
   <AppNavbar />
   <main>
-    Wkrótce
+    <router-view />
   </main>
   <AppFooter/>
 
 </template>
 
 <style scoped>
-
 
 </style>
