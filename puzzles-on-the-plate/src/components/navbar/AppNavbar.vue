@@ -32,8 +32,9 @@
     height: 100%;
   }
 
-  @media (max-width: 480px) {
-    .name {
+  .name {
+    font-family: 'Roboto Slab', serif;
+    @media (max-width: 480px) {
       text-align: center;
       line-height: 1;
     }
@@ -61,5 +62,6 @@
       display: none;
     }
   }
+
 }
 </style>
