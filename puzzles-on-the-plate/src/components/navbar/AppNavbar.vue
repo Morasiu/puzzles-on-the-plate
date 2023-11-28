@@ -1,10 +1,11 @@
 <script setup lang="ts">
 
+import AppLogo from "@/components/common/AppLogo.vue";
 </script>
 
 <template>
   <header class="header">
-    <img src="@/assets/logo.png" class="logo" alt="Logo">
+    <AppLogo class="logo" />
     <span class="name">Puzzle na talerzu</span>
     <input type="search" placeholder="np. kurczak curry" class="search">
     <button class="toggle" aria-label="Show/Hide menu">
