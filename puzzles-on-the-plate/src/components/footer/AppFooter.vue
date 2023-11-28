@@ -26,6 +26,7 @@ import AppLogo from "@/components/common/AppLogo.vue";
   background-color: color-mix(in srgb, var(--primary) 20%, transparent);
   .logo {
     height: 10rem;
+    margin: 1rem;
   }
 }
 </style>
