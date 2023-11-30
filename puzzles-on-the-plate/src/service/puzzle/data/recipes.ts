@@ -1,10 +1,15 @@
 import type {Recipe} from "@/service/puzzle/types";
 
+function getImageUrl(name) :string {
+    return new URL(`../../../assets/photos/${name}`, import.meta.url).href
+}
+
 export const getRecipesData = (): Recipe[] => {
+
     const recipes = [
         {
             name: "Kurczak curry",
-            imageUrl: "https://picsum.photos/1000/1000",
+            imageUrl: getImageUrl("curry-chicken.jpg"),
             slug: "curry-chicken"
         }];
     const numberOfSoon = 19;
