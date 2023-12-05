@@ -31,7 +31,12 @@ getRecipe(slug).then(x => {
             {{ tag }}
           </div>
         </div>
-
+        <h2 class="ingredients">Składniki</h2>
+        <div class="ingredients-list">
+          <div v-for="ingredient in recipe.ingredients" :key="ingredient.name"  class="ingredient">
+            <span>{{ingredient.quantityDescription}}</span>
+          </div>
+        </div>
       </div>
     </div>
     <div v-else>
@@ -75,6 +80,21 @@ getRecipe(slug).then(x => {
         .tag {
           background-color: var(--primary);
           padding: 0rem 0.5rem 0rem 0.5rem;
+        }
+      }
+
+      .ingredients {
+        margin-top: 1rem;
+      }
+
+      .ingredients-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        .ingredient {
+          display: flex;
+          gap: 0.5rem;
         }
       }
     }
