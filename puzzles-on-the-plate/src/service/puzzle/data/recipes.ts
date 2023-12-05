@@ -1,6 +1,6 @@
 import type {Recipe} from "@/service/puzzle/types";
 
-function getImageUrl(name) :string {
+function getImageUrl(name: string) :string {
     return new URL(`../../../assets/photos/${name}`, import.meta.url).href
 }
 
