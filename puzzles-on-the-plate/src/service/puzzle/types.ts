@@ -9,6 +9,7 @@ export type Recipe = {
 
 export type Ingredient = {
     name: string,
+    // In g
     quantity: number,
     quantityDescription: string,
     nutritionalValue: NutritionalValue

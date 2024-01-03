@@ -1,5 +1,6 @@
 import type {Recipe} from "@/service/puzzle/types";
 import {getNutritionValue} from "@/service/puzzle/data/ingredients";
+import {IngredientName} from "@/service/puzzle/data/IngredientName";
 
 function getImageUrl(name: string): string {
     return new URL(`../../../assets/photos/${name}`, import.meta.url).href
@@ -19,13 +20,13 @@ export const getRecipesData = (): Recipe[] => {
                     name: "Pierś z kurczaka",
                     quantity: 500,
                     quantityDescription: "500g piersi z kurczaka",
-                    nutritionalValue: getNutritionValue("chicken")
+                    nutritionalValue: getNutritionValue(IngredientName.Chicken)
                 },
                 {
                     name: "Krem kokosowy",
                     quantity: 476,
                     quantityDescription: "1 krem kokosowy (400ml)",
-                    nutritionalValue: getNutritionValue("coconutCream")
+                    nutritionalValue: getNutritionValue(IngredientName.CoconutCream)
                 }
             ]
         }];
