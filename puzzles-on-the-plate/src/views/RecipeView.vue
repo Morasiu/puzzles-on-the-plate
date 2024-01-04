@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {useRoute, useRouter} from "vue-router";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import type {Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
 
@@ -17,26 +17,45 @@ getRecipe(slug).then(x => {
   recipe.value = x.data;
 });
 
+const instructions = computed(() => {
+  if (!recipe.value) {
+    return [];
+  }
+  return recipe.value?.ingredients.map(x => x.instructions);
+});
+
 </script>
 
 <template>
-  <div class="recipe">
-    <div v-if="recipe" class="header">
-      <img :src="recipe.imageUrl" :alt="recipe.name" class="image">
-      <div class="description">
-        <h1>{{ recipe.name }}</h1>
-        <span>{{ recipe.shortDescription }}</span>
-        <div class="tags">
-          <div v-for="tag in recipe.tags" :key="tag" class="tag">
-            {{ tag }}
+  <div class="container">
+    <div v-if="recipe" class="recipe">
+      <div class="header">
+        <img :src="recipe.imageUrl" :alt="recipe.name" class="image">
+        <div class="description">
+          <h1>{{ recipe.name }}</h1>
+          <span>{{ recipe.shortDescription }}</span>
+          <div class="tags">
+            <div v-for="tag in recipe.tags" :key="tag" class="tag">
+              {{ tag }}
+            </div>
+          </div>
+          <h2 class="ingredients">Składniki</h2>
+          <div class="ingredients-list">
+            <div v-for="ingredient in recipe.ingredients" :key="ingredient.name" class="ingredient">
+              <span>{{ ingredient.quantityDescription }}</span>
+            </div>
+          </div>
+          <div class="instructions-container">
+            <h2>Sposób przygotowania</h2>
+            <div class="instructions">
+              <span v-for="(instruction, index) in instructions" :key="instruction">{{ index + 1 }}. {{
+                  instruction
+                }}</span>
+              <span>Smacznego!</span>
+            </div>
           </div>
         </div>
-        <h2 class="ingredients">Składniki</h2>
-        <div class="ingredients-list">
-          <div v-for="ingredient in recipe.ingredients" :key="ingredient.name"  class="ingredient">
-            <span>{{ingredient.quantityDescription}}</span>
-          </div>
-        </div>
+
       </div>
     </div>
     <div v-else>
@@ -47,13 +66,16 @@ getRecipe(slug).then(x => {
 
 <style scoped lang="scss">
 .recipe {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
-  margin: 5rem;
+  margin: 2rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
   @media (max-width: 480px) {
     margin: 0rem;
   }
+
   .header {
     display: flex;
     @media (max-width: 480px) {
@@ -61,9 +83,11 @@ getRecipe(slug).then(x => {
     }
 
     .image {
-      width: 50%;
+      width: auto;
+      height: 80vh;
       @media (max-width: 480px) {
         width: 100%;
+        height: auto;
       }
     }
 
@@ -77,6 +101,7 @@ getRecipe(slug).then(x => {
         display: flex;
         gap: 1rem;
         margin-top: 1rem;
+
         .tag {
           background-color: var(--primary);
           padding: 0rem 0.5rem 0rem 0.5rem;
@@ -84,17 +109,33 @@ getRecipe(slug).then(x => {
       }
 
       .ingredients {
-        margin-top: 1rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
       }
 
       .ingredients-list {
         display: flex;
         flex-direction: column;
         justify-content: center;
-        align-items: center;
+
         .ingredient {
           display: flex;
           gap: 0.5rem;
+        }
+      }
+
+      .instructions-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 1rem;
+        margin: 1rem 1rem 1rem 3rem;
+
+        .instructions {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
         }
       }
     }

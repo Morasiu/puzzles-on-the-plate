@@ -1,3 +1,5 @@
+import type {CookingPhase} from "@/service/puzzle/data/CookingPhase";
+
 export type Recipe = {
     name: string,
     imageUrl: string,
@@ -12,7 +14,9 @@ export type Ingredient = {
     // In g
     quantity: number,
     quantityDescription: string,
-    nutritionalValue: NutritionalValue
+    nutritionalValue: NutritionalValue,
+    cookingPhase: CookingPhase,
+    instructions: string,
 }
 
 export type NutritionalValue = {

@@ -1,0 +1,17 @@
+export enum CookingPhase {
+    Frying1 = "Frying1",
+    Frying2 = "Frying2",
+    Frying3 = "Frying3",
+    Frying4 = "Frying4",
+    Frying5 = "Frying5",
+    Sauce1 = "Sauce1",
+    Sauce2 = "Sauce2",
+    Sauce3 = "Sauce3",
+    Sauce4 = "Sauce4",
+    Sauce5 = "Sauce5",
+    Mixing1 = "Mixing1",
+    Mixing2 = "Mixing2",
+    Mixing3 = "Mixing3",
+    Mixing4 = "Mixing4",
+    Mixing5 = "Mixing5",
+}
