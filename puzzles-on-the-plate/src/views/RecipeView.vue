@@ -4,6 +4,7 @@ import {computed, ref} from "vue";
 import type {Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
 import CookingPhaseInstructions from "@/components/home/recipes/CookingPhaseInstructions.vue";
+import NutritionValues from "@/views/NutritionValues.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -32,10 +33,10 @@ const getCookingPhaseInstructions = (cookingPhaseName: string) => {
       .map(x => x.details);
 };
 
-const preparation = computed(() =>  getCookingPhaseInstructions("Preparation"));
-const frying = computed(() =>  getCookingPhaseInstructions("Frying"));
-const sauce = computed(() =>  getCookingPhaseInstructions("Sauce"));
-const mixing = computed(() =>  getCookingPhaseInstructions("Mixing"));
+const preparation = computed(() => getCookingPhaseInstructions("Preparation"));
+const frying = computed(() => getCookingPhaseInstructions("Frying"));
+const sauce = computed(() => getCookingPhaseInstructions("Sauce"));
+const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
 
 </script>
 
@@ -70,6 +71,7 @@ const mixing = computed(() =>  getCookingPhaseInstructions("Mixing"));
           Gotowe! Smaczenego!
         </h3>
       </div>
+      <NutritionValues :ingredients="recipe.ingredients"/>
     </div>
     <div v-else>
       Ładowanie...
@@ -146,7 +148,6 @@ const mixing = computed(() =>  getCookingPhaseInstructions("Mixing"));
     align-items: center;
     flex-direction: column;
     gap: 1rem;
-    margin: 1rem 1rem 1rem 3rem;
   }
 }
 </style>
