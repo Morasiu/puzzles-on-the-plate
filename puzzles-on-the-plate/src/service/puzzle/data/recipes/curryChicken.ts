@@ -51,7 +51,7 @@ export const curryChicken: Recipe =
                 nutritionalValue: getNutritionValue(IngredientName.CoconutCream),
                 instructions: [
                     {
-                        details: "Dodaj krem kokosowy na patlenię.",
+                        details: "Dodaj krem kokosowy na patelnię.",
                         cookingPhase: CookingPhase.Frying3
                     }
                 ]

@@ -3,7 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {computed, ref} from "vue";
 import type {Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
-import CookingPhaseInstructions from "@/views/CookingPhaseInstructions.vue";
+import CookingPhaseInstructions from "@/components/home/recipes/CookingPhaseInstructions.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -58,17 +58,17 @@ const mixing = computed(() =>  getCookingPhaseInstructions("Mixing"));
               <span>{{ ingredient.quantityDescription }}</span>
             </div>
           </div>
-          <div class="instructions-container">
-            <h2>Sposób przygotowania</h2>
-            <CookingPhaseInstructions v-if="preparation.length > 0" title="Przygotowanie" :instructions="preparation"/>
-            <CookingPhaseInstructions v-if="frying.length > 0" title="Smażenie" :instructions="frying"/>
-            <CookingPhaseInstructions v-if="sauce.length > 0" title="Sos" :instructions="sauce"/>
-            <CookingPhaseInstructions v-if="mixing.length > 0" title="Mieszanie" :instructions="mixing"/>
-            <h3>
-              Gotowe! Smaczenego!
-            </h3>
-          </div>
         </div>
+      </div>
+      <div class="instructions-container">
+        <h2>Sposób przygotowania</h2>
+        <CookingPhaseInstructions v-if="preparation.length > 0" title="Przygotowanie" :instructions="preparation"/>
+        <CookingPhaseInstructions v-if="frying.length > 0" title="Smażenie" :instructions="frying"/>
+        <CookingPhaseInstructions v-if="sauce.length > 0" title="Sos" :instructions="sauce"/>
+        <CookingPhaseInstructions v-if="mixing.length > 0" title="Mieszanie" :instructions="mixing"/>
+        <h3>
+          Gotowe! Smaczenego!
+        </h3>
       </div>
     </div>
     <div v-else>
@@ -108,6 +108,7 @@ const mixing = computed(() =>  getCookingPhaseInstructions("Mixing"));
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       min-width: 50%;
 
       .tags {
@@ -136,16 +137,16 @@ const mixing = computed(() =>  getCookingPhaseInstructions("Mixing"));
           gap: 0.5rem;
         }
       }
-
-      .instructions-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        gap: 1rem;
-        margin: 1rem 1rem 1rem 3rem;
-      }
     }
+  }
+
+  .instructions-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 1rem 1rem 3rem;
   }
 }
 </style>
