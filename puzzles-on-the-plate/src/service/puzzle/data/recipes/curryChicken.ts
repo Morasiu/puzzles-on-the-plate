@@ -87,10 +87,15 @@ export const curryChicken: Recipe =
                 nutritionalValue: getNutritionValue(IngredientName.Rice),
                 instructions: [
                     {
-                        details: "Ugotuj ryż i dodaj go na palelnię.",
+                        details: "Ugotuj ryż.",
+                        cookingPhase: CookingPhase.Preparation1
+                    },
+                    {
+                        details: "Dodaj ryż na palelnię.",
                         cookingPhase: CookingPhase.Mixing1
                     }
                 ]
             },
         ]
-    };
+    }
+;
