@@ -21,7 +21,7 @@ jobs:
           npm run build-only
       - name: Copy index.html as 404.html
         run: |
-          cp ./puzzles-on-the-plate/dist/index.html ./puzzles-on-the-plate/dist/404.html
+          cp "./puzzles-on-the-plate/dist/index.html" "./puzzles-on-the-plate/dist/404.html"
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@v4.3.3
         with:
