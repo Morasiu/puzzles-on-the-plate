@@ -18,12 +18,15 @@ const props = defineProps<{
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .container {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: center;
+  width: 50rem;
+  @media (max-width: 480px) {
+    width: 100%;
+  }
 
   .instructions {
     display: flex;
