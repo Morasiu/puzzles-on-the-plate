@@ -17,48 +17,80 @@ export const curryChicken: Recipe =
                 quantity: 500,
                 quantityDescription: "500g piersi z kurczaka",
                 nutritionalValue: getNutritionValue(IngredientName.Chicken),
-                cookingPhase: CookingPhase.Frying1,
-                instructions: "Pokrój piersi w kostkę i podsmaż na dużej patelni (najlepiej do woka) aż nie będzie różowy."
+                instructions: [
+                    {
+                        details: "Umyj piersi i pokrój w kostkę.",
+                        cookingPhase: CookingPhase.Preparation1,
+                    },
+                    {
+                        details: "Dodaj kurczaka i podsmaż na dużej patelni (najlepiej do woka) aż nie będzie już różowy.",
+                        cookingPhase: CookingPhase.Frying1,
+                    }
+                ]
             },
             {
                 name: "Czerwona papryka",
                 quantity: 120,
                 quantityDescription: "1 czerwona papryka (ok 120g)",
                 nutritionalValue: getNutritionValue(IngredientName.RedPepper),
-                cookingPhase: CookingPhase.Frying2,
-                instructions: "Pokrój paprykę w kostkę i dodaj na patelnię.",
+                instructions: [
+                    {
+                        details: "Pokrój paprykę w kostkę.",
+                        cookingPhase: CookingPhase.Preparation1,
+                    },
+                    {
+                        details: "Przygotowaną paprykę dodaj do kurczaka na patelnię i smaż przez 5 minut.",
+                        cookingPhase: CookingPhase.Frying2,
+                    }
+                ],
             },
             {
                 name: "Krem kokosowy",
                 quantity: 476,
                 quantityDescription: "1 krem kokosowy (400ml)",
                 nutritionalValue: getNutritionValue(IngredientName.CoconutCream),
-                cookingPhase: CookingPhase.Frying3,
-                instructions: "Dodaj krem kokosowy na patlenię."
+                instructions: [
+                    {
+                        details: "Dodaj krem kokosowy na patlenię.",
+                        cookingPhase: CookingPhase.Frying3
+                    }
+                ]
             },
             {
                 name: "Curry",
                 quantity: 12,
                 quantityDescription: "2 łyżki curry",
                 nutritionalValue: getNutritionValue(IngredientName.Curry),
-                cookingPhase: CookingPhase.Frying4,
-                instructions: "Dodaj curry na patelnię."
+                instructions: [
+                    {
+                        details: "Dodaj curry na patelnię.",
+                        cookingPhase: CookingPhase.Frying3
+                    }
+                ]
             },
             {
                 name: "Miód",
                 quantity: 21,
                 quantityDescription: "1 łyżka miodu",
                 nutritionalValue: getNutritionValue(IngredientName.Honey),
-                cookingPhase: CookingPhase.Frying4,
-                instructions: "Dodaj miód na patelnię."
+                instructions: [
+                    {
+                        details: "Dodaj miód na patelnię.",
+                        cookingPhase: CookingPhase.Frying3
+                    }
+                ]
             },
             {
                 name: "Ryż",
                 quantity: 100,
                 quantityDescription: "1 torebka ryżu (100g)",
                 nutritionalValue: getNutritionValue(IngredientName.Rice),
-                cookingPhase: CookingPhase.Mixing1,
-                instructions: "Ugotuj ryż i dodaj go na palelnię."
+                instructions: [
+                    {
+                        details: "Ugotuj ryż i dodaj go na palelnię.",
+                        cookingPhase: CookingPhase.Mixing1
+                    }
+                ]
             },
         ]
     };

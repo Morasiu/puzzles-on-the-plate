@@ -15,8 +15,12 @@ export type Ingredient = {
     quantity: number,
     quantityDescription: string,
     nutritionalValue: NutritionalValue,
+    instructions: Instruction[],
+}
+
+export type Instruction = {
     cookingPhase: CookingPhase,
-    instructions: string,
+    details: string
 }
 
 export type NutritionalValue = {

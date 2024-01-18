@@ -1,4 +1,9 @@
 export enum CookingPhase {
+    Preparation1 = "Preparation1",
+    Preparation2 = "Preparation2",
+    Preparation3 = "Preparation3",
+    Preparation4 = "Preparation4",
+    Preparation5 = "Preparation5",
     Frying1 = "Frying1",
     Frying2 = "Frying2",
     Frying3 = "Frying3",
