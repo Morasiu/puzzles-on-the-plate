@@ -8,7 +8,7 @@ export const curryChicken: Recipe =
     {
         name: "Kurczak curry",
         imageUrl: getImageUrl("curry-chicken.jpg"),
-        slug: "curry-chicken",
+        slug: "curry-kurczak",
         shortDescription: "Szybkie danie z piersi z kurczaka doprawione curry",
         tags: ["kurczak", "curry", "indyjskie", "szybkie", "nowe"],
         ingredients: [
