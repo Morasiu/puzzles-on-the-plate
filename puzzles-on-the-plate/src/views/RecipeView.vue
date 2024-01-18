@@ -3,6 +3,7 @@ import {useRoute, useRouter} from "vue-router";
 import {computed, ref} from "vue";
 import type {Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
+import CookingPhaseInstructions from "@/views/CookingPhaseInstructions.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -21,8 +22,20 @@ const instructions = computed(() => {
   if (!recipe.value) {
     return [];
   }
-  return recipe.value?.ingredients.map(x => x.instructions);
+  return recipe.value?.ingredients.flatMap(x => x.instructions);
 });
+
+const getCookingPhaseInstructions = (cookingPhaseName: string) => {
+  return instructions.value
+      .filter(x => x.cookingPhase.startsWith(cookingPhaseName))
+      .sort()
+      .map(x => x.details);
+};
+
+const preparation = computed(() =>  getCookingPhaseInstructions("Preparation"));
+const frying = computed(() =>  getCookingPhaseInstructions("Frying"));
+const sauce = computed(() =>  getCookingPhaseInstructions("Sauce"));
+const mixing = computed(() =>  getCookingPhaseInstructions("Mixing"));
 
 </script>
 
@@ -47,15 +60,15 @@ const instructions = computed(() => {
           </div>
           <div class="instructions-container">
             <h2>Sposób przygotowania</h2>
-            <div class="instructions">
-              <span v-for="(instruction, index) in instructions" :key="instruction">{{ index + 1 }}. {{
-                  instruction
-                }}</span>
-              <span>Smacznego!</span>
-            </div>
+            <CookingPhaseInstructions v-if="preparation.length > 0" title="Przygotowanie" :instructions="preparation"/>
+            <CookingPhaseInstructions v-if="frying.length > 0" title="Smażenie" :instructions="frying"/>
+            <CookingPhaseInstructions v-if="sauce.length > 0" title="Sos" :instructions="sauce"/>
+            <CookingPhaseInstructions v-if="mixing.length > 0" title="Mieszanie" :instructions="mixing"/>
+            <h3>
+              Gotowe! Smaczenego!
+            </h3>
           </div>
         </div>
-
       </div>
     </div>
     <div v-else>
@@ -131,12 +144,6 @@ const instructions = computed(() => {
         flex-direction: column;
         gap: 1rem;
         margin: 1rem 1rem 1rem 3rem;
-
-        .instructions {
-          display: flex;
-          flex-direction: column;
-          gap: 1rem;
-        }
       }
     }
   }
