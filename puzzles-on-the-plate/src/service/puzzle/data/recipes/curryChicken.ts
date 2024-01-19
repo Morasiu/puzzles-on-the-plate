@@ -23,7 +23,7 @@ export const curryChicken: Recipe =
                         cookingPhase: CookingPhase.Preparation1,
                     },
                     {
-                        details: "Dodaj kurczaka i podsmaż na dużej patelni (najlepiej do woka) aż nie będzie już różowy.",
+                        details: "Dodaj kurczaka na dużą patelnię (najlepiej patelnie typu wok) i podsmaż aż nie będzie już różowy.",
                         cookingPhase: CookingPhase.Frying1,
                     }
                 ]
@@ -35,7 +35,7 @@ export const curryChicken: Recipe =
                 nutritionalValue: getNutritionValue(IngredientName.RedPepper),
                 instructions: [
                     {
-                        details: "Pokrój paprykę w kostkę.",
+                        details: "Umyj i pokrój paprykę w kostkę.",
                         cookingPhase: CookingPhase.Preparation1,
                     },
                     {
@@ -52,7 +52,7 @@ export const curryChicken: Recipe =
                 instructions: [
                     {
                         details: "Dodaj krem kokosowy na patelnię.",
-                        cookingPhase: CookingPhase.Frying3
+                        cookingPhase: CookingPhase.Mixing1
                     }
                 ]
             },
@@ -64,7 +64,7 @@ export const curryChicken: Recipe =
                 instructions: [
                     {
                         details: "Dodaj curry na patelnię.",
-                        cookingPhase: CookingPhase.Frying3
+                        cookingPhase: CookingPhase.Mixing1
                     }
                 ]
             },
@@ -76,23 +76,23 @@ export const curryChicken: Recipe =
                 instructions: [
                     {
                         details: "Dodaj miód na patelnię.",
-                        cookingPhase: CookingPhase.Frying3
+                        cookingPhase: CookingPhase.Mixing1
                     }
                 ]
             },
             {
                 name: "Ryż",
                 quantity: 100,
-                quantityDescription: "1 torebka ryżu (100g)",
-                nutritionalValue: getNutritionValue(IngredientName.Rice),
+                quantityDescription: "1 torebka białego ryżu (100g)",
+                nutritionalValue: getNutritionValue(IngredientName.WhiteRice),
                 instructions: [
                     {
-                        details: "Ugotuj ryż.",
+                        details: "Ugotuj ryż według instrukcji na opakowaniu.",
                         cookingPhase: CookingPhase.Preparation1
                     },
                     {
-                        details: "Dodaj ryż na palelnię.",
-                        cookingPhase: CookingPhase.Mixing1
+                        details: "Dodaj ryż na palelnię i wszystko wymieszaj razem.",
+                        cookingPhase: CookingPhase.Mixing2
                     }
                 ]
             },

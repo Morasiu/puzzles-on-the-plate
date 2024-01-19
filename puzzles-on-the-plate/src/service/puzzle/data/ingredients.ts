@@ -24,7 +24,7 @@ const nutritionValues: { [key in IngredientName]: NutritionalValue } = {
         sugar: 4.4,
         protein: 0.9
     },
-    Rice: {
+    WhiteRice: {
         calories: 130,
         totalCarbohydrate: 28,
         protein: 2.7

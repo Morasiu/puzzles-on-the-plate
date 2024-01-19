@@ -2,7 +2,7 @@ export enum IngredientName {
     Chicken = "Chicken",
     CoconutCream = "CoconutCream",
     RedPepper = "RedPepper",
-    Rice = "Rice",
+    WhiteRice = "WhiteRice",
     Curry = "Curry",
     Honey = "Honey",
 }

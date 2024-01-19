@@ -15,6 +15,7 @@ const recipe = ref<Recipe>()
 getRecipe(slug).then(x => {
   if (x.status == 404) {
     router.replace({name: "NotFound"})
+    return;
   }
   recipe.value = x.data;
 });
