@@ -37,7 +37,7 @@ const getNutritionValuePerServing = (name: string, servings: number) => {
     <table>
       <tr>
         <th class="name">Wartość odżywcza</th>
-        <th class="serving">w porcji ({{ weight / 2 }} g)</th>
+        <th class="servings">w porcji ({{ weight / 2 }} g)</th>
         <th class="hundred-g">w 100 g</th>
       </tr>
       <tr>
@@ -102,18 +102,21 @@ const getNutritionValuePerServing = (name: string, servings: number) => {
 
     .name {
       width: 70%;
+      font-weight: bold;
       @media (max-width: 480px) {
         width: 60%;
       }
     }
 
     .servings {
+      font-weight: bold;
       @media (max-width: 480px) {
         width: 20%;
       }
     }
 
     .hundred-g {
+      font-weight: bold;
       @media (max-width: 480px) {
         width: 20%;
       }

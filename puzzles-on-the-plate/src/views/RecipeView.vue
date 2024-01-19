@@ -11,6 +11,7 @@ const router = useRouter();
 const slug = route.params.slug as string;
 
 const recipe = ref<Recipe>()
+const servings = ref(2);
 
 getRecipe(slug).then(x => {
   if (x.status == 404) {
@@ -55,6 +56,9 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
             </div>
           </div>
           <h2 class="ingredients">Składniki</h2>
+          <div  class="servings">
+            <span>liczba porcji: {{servings}}</span>
+          </div>
           <div class="ingredients-list">
             <div v-for="ingredient in recipe.ingredients" :key="ingredient.name" class="ingredient">
               <span>{{ ingredient.quantityDescription }}</span>
@@ -127,6 +131,8 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
 
       .ingredients {
         margin-top: 2rem;
+      }
+      .servings {
         margin-bottom: 1rem;
       }
 
@@ -149,6 +155,7 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
     align-items: center;
     flex-direction: column;
     gap: 1rem;
+    margin: 0 1rem 0 1rem;
   }
 }
 </style>
