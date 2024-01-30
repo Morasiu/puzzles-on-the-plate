@@ -4,7 +4,7 @@ import {computed, ref} from "vue";
 import type {Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
 import CookingPhaseInstructions from "@/components/home/recipes/CookingPhaseInstructions.vue";
-import NutritionValues from "@/views/NutritionValues.vue";
+import NutritionValues from "@/components/home/recipes/NutritionValues.vue";
 
 const route = useRoute();
 const router = useRouter();
