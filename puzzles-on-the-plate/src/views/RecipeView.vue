@@ -5,6 +5,8 @@ import type {Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
 import CookingPhaseInstructions from "@/components/home/recipes/CookingPhaseInstructions.vue";
 import NutritionValues from "@/components/home/recipes/NutritionValues.vue";
+import IngredientList from "@/views/IngredientList.vue";
+import SearchBar from "@/views/SearchBar.vue";
 
 const route = useRoute();
 const router = useRouter();
@@ -35,6 +37,13 @@ const getCookingPhaseInstructions = (cookingPhaseName: string) => {
       .map(x => x.details);
 };
 
+const searchValue = ref("");
+
+const unusedIngredients = computed(() => {
+  const suggestions = ["marchew", "linijka", "mananas", "pomidor", "cebul", "papryka", "papryka czerwona", "papryka zielona"];
+  return suggestions.sort().filter(x => x.includes(searchValue.value)).slice(0, 5);
+});
+
 const preparation = computed(() => getCookingPhaseInstructions("Preparation"));
 const frying = computed(() => getCookingPhaseInstructions("Frying"));
 const sauce = computed(() => getCookingPhaseInstructions("Sauce"));
@@ -56,14 +65,11 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
             </div>
           </div>
           <h2 class="ingredients">Składniki</h2>
-          <div  class="servings">
-            <span>liczba porcji: {{servings}}</span>
+          <div class="servings">
+            <span>liczba porcji: {{ servings }}</span>
           </div>
-          <div class="ingredients-list">
-            <div v-for="ingredient in recipe.ingredients" :key="ingredient.name" class="ingredient">
-              <span>{{ ingredient.quantityDescription }}</span>
-            </div>
-          </div>
+          <IngredientList :ingredients="recipe.ingredients"/>
+          <SearchBar v-model="searchValue" :suggestions="unusedIngredients"/>
         </div>
       </div>
       <div class="instructions-container">
@@ -118,6 +124,7 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
       justify-content: center;
       min-width: 50%;
 
+
       .tags {
         display: flex;
         gap: 1rem;
@@ -132,20 +139,11 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
       .ingredients {
         margin-top: 2rem;
       }
+
       .servings {
         margin-bottom: 1rem;
       }
 
-      .ingredients-list {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-
-        .ingredient {
-          display: flex;
-          gap: 0.5rem;
-        }
-      }
     }
   }
 

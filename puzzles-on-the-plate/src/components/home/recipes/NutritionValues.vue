@@ -12,8 +12,8 @@ const servings = 2;
 const weight = computed(() => props.ingredients
     .reduce((sum, b) => sum + b.quantity, 0));
 
-const getNutritionValueBase = (value: NutritionalValue, name: string) => {
-  return value[name] ?? 0;
+const getNutritionValueBase = (value: NutritionalValue, name: string): number => {
+  return value[name] as number ?? 0;
 }
 
 const getNutritionValuePer100g = (name: string) => {
