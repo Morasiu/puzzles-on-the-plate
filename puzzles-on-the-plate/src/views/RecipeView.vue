@@ -41,7 +41,7 @@ const searchValue = ref("");
 
 const unusedIngredients = computed(() => {
   const suggestions = ["marchew", "linijka", "mananas", "pomidor", "cebul", "papryka", "papryka czerwona", "papryka zielona"];
-  return suggestions.sort().filter(x => x.includes(searchValue.value)).slice(0, 5);
+  return suggestions;
 });
 
 const preparation = computed(() => getCookingPhaseInstructions("Preparation"));
@@ -69,7 +69,7 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
             <span>liczba porcji: {{ servings }}</span>
           </div>
           <IngredientList :ingredients="recipe.ingredients"/>
-          <SearchBar v-model="searchValue" :suggestions="unusedIngredients"/>
+          <SearchBar v-model="searchValue" :suggestions="unusedIngredients" class="search"/>
         </div>
       </div>
       <div class="instructions-container">
@@ -124,6 +124,10 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
       justify-content: center;
       min-width: 50%;
 
+      .search {
+        margin-top: 1rem;
+        width: 70%;
+      }
 
       .tags {
         display: flex;
