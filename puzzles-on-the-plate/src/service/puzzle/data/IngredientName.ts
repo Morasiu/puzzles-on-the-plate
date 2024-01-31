@@ -5,4 +5,6 @@ export enum IngredientName {
     WhiteRice = "WhiteRice",
     Curry = "Curry",
     Honey = "Honey",
+    Tofu = "Tofu",
+    MapleSyrup = "MapleSyrup",
 }

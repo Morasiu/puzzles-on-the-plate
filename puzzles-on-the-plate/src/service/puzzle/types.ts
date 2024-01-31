@@ -1,4 +1,5 @@
 import type {CookingPhase} from "@/service/puzzle/data/CookingPhase";
+import type {IngredientName} from "@/service/puzzle/data/IngredientName";
 
 export type Recipe = {
     name: string,
@@ -6,11 +7,19 @@ export type Recipe = {
     slug: string,
     shortDescription: string,
     tags: string[],
-    ingredients: Ingredient[]
+    ingredients: Ingredient[],
+    puzzles: Puzzle[],
+}
+
+export type Puzzle = {
+    name: string,
+    slug: string,
+    shortDescription: string,
+    ingredients: IngredientName[],
 }
 
 export type Ingredient = {
-    name: string,
+    name: IngredientName,
     // In g
     quantity: number,
     quantityDescription: string,

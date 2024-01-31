@@ -1,18 +1,21 @@
 <script setup lang="ts">
 import {useRoute, useRouter} from "vue-router";
 import {computed, ref} from "vue";
-import type {Recipe} from "@/service/puzzle/types";
+import type {Puzzle, Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
 import CookingPhaseInstructions from "@/components/home/recipes/CookingPhaseInstructions.vue";
 import NutritionValues from "@/components/home/recipes/NutritionValues.vue";
 import IngredientList from "@/views/IngredientList.vue";
-import SearchBar from "@/views/SearchBar.vue";
+import SearchBar from "@/components/home/base/search/SearchBar.vue";
+import type {Suggestion} from "@/components/home/base/search/types";
+import {IngredientName} from "@/service/puzzle/data/IngredientName";
 
 const route = useRoute();
 const router = useRouter();
 const slug = route.params.slug as string;
 
 const recipe = ref<Recipe>()
+const currentPuzzle = ref<Puzzle>();
 const servings = ref(2);
 
 getRecipe(slug).then(x => {
@@ -21,13 +24,20 @@ getRecipe(slug).then(x => {
     return;
   }
   recipe.value = x.data;
+  currentPuzzle.value = x.data?.puzzles[0];
 });
 
 const instructions = computed(() => {
   if (!recipe.value) {
     return [];
   }
-  return recipe.value?.ingredients.flatMap(x => x.instructions);
+
+  if (!currentPuzzle.value) {
+    return [];
+  }
+
+  const ingredients = currentPuzzle.value?.ingredients;
+  return recipe.value?.ingredients.filter(x => ingredients.includes(x.name)).flatMap(x => x.instructions);
 });
 
 const getCookingPhaseInstructions = (cookingPhaseName: string) => {
@@ -39,8 +49,13 @@ const getCookingPhaseInstructions = (cookingPhaseName: string) => {
 
 const searchValue = ref("");
 
-const unusedIngredients = computed(() => {
-  const suggestions = ["marchew", "linijka", "mananas", "pomidor", "cebul", "papryka", "papryka czerwona", "papryka zielona"];
+const unusedIngredients = computed<Suggestion[]>(() => {
+  const suggestions = recipe.value?.ingredients
+      .filter(x => !currentPuzzle.value?.ingredients.includes(x.name))
+      .map(x => ({
+        label: x.name,
+        value: x.name,
+      })) ?? [];
   return suggestions;
 });
 
