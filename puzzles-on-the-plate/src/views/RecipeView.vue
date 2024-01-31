@@ -8,7 +8,9 @@ import NutritionValues from "@/components/home/recipes/NutritionValues.vue";
 import IngredientList from "@/views/IngredientList.vue";
 import SearchBar from "@/components/home/base/search/SearchBar.vue";
 import type {Suggestion} from "@/components/home/base/search/types";
-import {IngredientName} from "@/service/puzzle/data/IngredientName";
+import {useI18n} from 'vue-i18n'
+
+const {t} = useI18n();
 
 const route = useRoute();
 const router = useRouter();
@@ -27,7 +29,7 @@ getRecipe(slug).then(x => {
   currentPuzzle.value = x.data?.puzzles[0];
 });
 
-const instructions = computed(() => {
+const currentInstructions = computed(() => {
   if (!recipe.value) {
     return [];
   }
@@ -40,24 +42,37 @@ const instructions = computed(() => {
   return recipe.value?.ingredients.filter(x => ingredients.includes(x.name)).flatMap(x => x.instructions);
 });
 
+const currentIngredients = computed(() => {
+  return recipe.value?.ingredients.filter(x => currentPuzzle.value?.ingredients.includes(x.name)) ?? [];
+});
+
 const getCookingPhaseInstructions = (cookingPhaseName: string) => {
-  return instructions.value
+  const naturalCollator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
+
+  return currentInstructions.value
       .filter(x => x.cookingPhase.startsWith(cookingPhaseName))
-      .sort()
+      .sort((a, b) => naturalCollator.compare(a.cookingPhase, b.cookingPhase))
       .map(x => x.details);
 };
 
 const searchValue = ref("");
-
 const unusedIngredients = computed<Suggestion[]>(() => {
   const suggestions = recipe.value?.ingredients
       .filter(x => !currentPuzzle.value?.ingredients.includes(x.name))
       .map(x => ({
-        label: x.name,
+        label: t(`ingredients.${x.name}`),
         value: x.name,
       })) ?? [];
   return suggestions;
 });
+const onSearched = (suggestion: Suggestion) => {
+  const ingredient = recipe.value?.ingredients.find(x => x.name == suggestion.value);
+  if (!ingredient) {
+    return;
+  }
+  currentPuzzle.value = {...currentPuzzle.value} as Puzzle;
+  currentPuzzle.value?.ingredients.push(ingredient.name);
+};
 
 const preparation = computed(() => getCookingPhaseInstructions("Preparation"));
 const frying = computed(() => getCookingPhaseInstructions("Frying"));
@@ -83,8 +98,8 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
           <div class="servings">
             <span>liczba porcji: {{ servings }}</span>
           </div>
-          <IngredientList :ingredients="recipe.ingredients"/>
-          <SearchBar v-model="searchValue" :suggestions="unusedIngredients" class="search"/>
+          <IngredientList :ingredients="currentIngredients"/>
+          <SearchBar v-model="searchValue" :suggestions="unusedIngredients" class="search" @search="onSearched" />
         </div>
       </div>
       <div class="instructions-container">
@@ -97,7 +112,7 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
           Gotowe! Smaczenego!
         </h3>
       </div>
-      <NutritionValues :ingredients="recipe.ingredients"/>
+      <NutritionValues :ingredients="currentIngredients"/>
     </div>
     <div v-else>
       Ładowanie...
