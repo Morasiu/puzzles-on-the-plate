@@ -1,6 +1,7 @@
 <script setup lang="ts">
 
 import AppLogo from "@/components/common/AppLogo.vue";
+import {faBars} from "@fortawesome/free-solid-svg-icons";
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import AppLogo from "@/components/common/AppLogo.vue";
     <span class="name">Puzzle na talerzu</span>
     <input type="search" placeholder="np. kurczak curry" class="search">
     <button class="toggle" aria-label="Show/Hide menu">
-      <font-awesome-icon :icon="['fas', 'bars']"></font-awesome-icon>
+      <font-awesome-icon :icon="faBars"></font-awesome-icon>
     </button>
   </header>
 </template>
