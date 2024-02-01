@@ -6,9 +6,10 @@ import {getRecipe} from "@/service/puzzle/api";
 import CookingPhaseInstructions from "@/components/home/recipes/CookingPhaseInstructions.vue";
 import NutritionValues from "@/components/home/recipes/NutritionValues.vue";
 import IngredientList from "@/views/IngredientList.vue";
-import SearchBar from "@/components/home/base/search/SearchBar.vue";
-import type {Suggestion} from "@/components/home/base/search/types";
+import SearchBar from "@/components/common/search/SearchBar.vue";
+import type {Suggestion} from "@/components/common/search/types";
 import {useI18n} from 'vue-i18n'
+import {useToast} from "@/components/common/toast/toast";
 
 const {t} = useI18n();
 
@@ -19,6 +20,7 @@ const slug = route.params.slug as string;
 const recipe = ref<Recipe>()
 const currentPuzzle = ref<Puzzle>();
 const servings = ref(2);
+const {toast} = useToast();
 
 getRecipe(slug).then(x => {
   if (x.status == 404) {
@@ -52,6 +54,7 @@ const onIngredientRemoved = (ingredient: Ingredient) => {
   }
   currentPuzzle.value = {...currentPuzzle.value} as Puzzle;
   currentPuzzle.value.ingredients = currentPuzzle.value?.ingredients.filter(x => x != ingredient.name);
+  toast("Usunięto skadnik");
 };
 
 const getCookingPhaseInstructions = (cookingPhaseName: string) => {
@@ -108,7 +111,7 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
             <span>liczba porcji: {{ servings }}</span>
           </div>
           <IngredientList :ingredients="currentIngredients" @ingredient-removed="onIngredientRemoved"/>
-          <SearchBar v-model="searchValue" :suggestions="unusedIngredients" class="search" @search="onSearched" />
+          <SearchBar v-model="searchValue" :suggestions="unusedIngredients" class="search" @search="onSearched"/>
         </div>
       </div>
       <div class="instructions-container">

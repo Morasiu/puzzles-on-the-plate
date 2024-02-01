@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import AppFooter from "@/components/footer/AppFooter.vue";
 import AppNavbar from "@/components/navbar/AppNavbar.vue";
+import BaseToast from "@/components/common/toast/BaseToast.vue";
 </script>
 
 <template>
@@ -9,7 +10,7 @@ import AppNavbar from "@/components/navbar/AppNavbar.vue";
     <router-view />
   </main>
   <AppFooter/>
-
+  <BaseToast />
 </template>
 
 <style scoped>

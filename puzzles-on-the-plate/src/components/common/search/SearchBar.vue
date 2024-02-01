@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import {computed} from "vue";
-import type {Suggestion} from "@/components/home/base/search/types";
+import type {Suggestion} from "@/components/common/search/types";
 
 
 

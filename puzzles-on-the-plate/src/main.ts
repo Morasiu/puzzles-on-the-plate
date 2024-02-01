@@ -8,7 +8,6 @@ import router from './router'
 
 import VueGtag from 'vue-gtag'
 
-
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import {createI18n} from "vue-i18n";
 
