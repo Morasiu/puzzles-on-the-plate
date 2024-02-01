@@ -22,10 +22,10 @@ library.add(fas, fab, far)
 
 const app = createApp(App)
 
-import pl from "./locales/pl.json";
+import pl from "@/locales/pl.json";
 const i18n = createI18n({
     locale: navigator.language.slice(0, 2),
-    fallbackLocale: "pl-PL",
+    fallbackLocale: "pl",
     messages: { pl },
     legacy: false
 })
