@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useRoute, useRouter} from "vue-router";
 import {computed, ref} from "vue";
-import type {Puzzle, Recipe} from "@/service/puzzle/types";
+import type {Ingredient, Puzzle, Recipe} from "@/service/puzzle/types";
 import {getRecipe} from "@/service/puzzle/api";
 import CookingPhaseInstructions from "@/components/home/recipes/CookingPhaseInstructions.vue";
 import NutritionValues from "@/components/home/recipes/NutritionValues.vue";
@@ -46,6 +46,14 @@ const currentIngredients = computed(() => {
   return recipe.value?.ingredients.filter(x => currentPuzzle.value?.ingredients.includes(x.name)) ?? [];
 });
 
+const onIngredientRemoved = (ingredient: Ingredient) => {
+  if (!currentPuzzle.value) {
+    return;
+  }
+  currentPuzzle.value = {...currentPuzzle.value} as Puzzle;
+  currentPuzzle.value.ingredients = currentPuzzle.value?.ingredients.filter(x => x != ingredient.name);
+};
+
 const getCookingPhaseInstructions = (cookingPhaseName: string) => {
   const naturalCollator = new Intl.Collator(undefined, {numeric: true, sensitivity: 'base'});
 
@@ -65,6 +73,7 @@ const unusedIngredients = computed<Suggestion[]>(() => {
       })) ?? [];
   return suggestions;
 });
+
 const onSearched = (suggestion: Suggestion) => {
   const ingredient = recipe.value?.ingredients.find(x => x.name == suggestion.value);
   if (!ingredient) {
@@ -98,7 +107,7 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
           <div class="servings">
             <span>liczba porcji: {{ servings }}</span>
           </div>
-          <IngredientList :ingredients="currentIngredients"/>
+          <IngredientList :ingredients="currentIngredients" @ingredient-removed="onIngredientRemoved"/>
           <SearchBar v-model="searchValue" :suggestions="unusedIngredients" class="search" @search="onSearched" />
         </div>
       </div>

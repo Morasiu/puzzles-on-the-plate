@@ -7,12 +7,20 @@ const props = defineProps<{
   ingredients: Ingredient[],
 }>();
 
+const emit = defineEmits<{
+  (e: "ingredientRemoved", ingredient: Ingredient): void
+}>();
+
+const onIngredientRemoved = (ingredient: Ingredient) => {
+  emit("ingredientRemoved", ingredient);
+}
+
 </script>
 
 <template>
   <div>
     <div v-for="ingredient in ingredients" :key="ingredient.name" class="ingredient">
-      <font-awesome-icon :icon="faSquareMinus" class="remove-icon"/> <span>{{ ingredient.quantityDescription }}</span>
+      <font-awesome-icon :icon="faSquareMinus" class="remove-icon" @click="onIngredientRemoved(ingredient)"/> <span>{{ ingredient.quantityDescription }}</span>
     </div>
   </div>
 </template>
