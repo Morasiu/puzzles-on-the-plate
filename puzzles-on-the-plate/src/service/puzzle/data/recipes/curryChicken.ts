@@ -114,7 +114,7 @@ export const curryChicken: Recipe =
             {
                 name: IngredientName.MapleSyrup,
                 quantity: 12,
-                quantityDescription: "2 łyzki syropu klonowego",
+                quantityDescription: "2 łyżki syropu klonowego",
                 nutritionalValue: getNutritionValue(IngredientName.MapleSyrup),
                 instructions: [
                     {
