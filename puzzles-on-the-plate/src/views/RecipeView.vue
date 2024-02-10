@@ -68,13 +68,12 @@ const getCookingPhaseInstructions = (cookingPhaseName: string) => {
 
 const searchValue = ref("");
 const unusedIngredients = computed<Suggestion[]>(() => {
-  const suggestions = recipe.value?.ingredients
+  return recipe.value?.ingredients
       .filter(x => !currentPuzzle.value?.ingredients.includes(x.name))
       .map(x => ({
         label: t(`ingredients.${x.name}`),
         value: x.name,
       })) ?? [];
-  return suggestions;
 });
 
 const onSearched = (suggestion: Suggestion) => {
@@ -84,6 +83,7 @@ const onSearched = (suggestion: Suggestion) => {
   }
   currentPuzzle.value = {...currentPuzzle.value} as Puzzle;
   currentPuzzle.value?.ingredients.push(ingredient.name);
+  toast("Dodano składnik");
 };
 
 const preparation = computed(() => getCookingPhaseInstructions("Preparation"));
