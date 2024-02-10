@@ -44,7 +44,21 @@ const nutritionValues: { [key in IngredientName]: NutritionalValue } = {
         totalCarbohydrate: 82,
         sugar: 82,
         protein: 0.3,
-    }
+    },
+    MapleSyrup: {
+        calories: 260,
+        totalCarbohydrate: 67,
+        sugar: 60,
+    },
+    Tofu: {
+        calories: 83,
+        totalFat: 5.3,
+        saturatedFat: 0.9,
+        sodium: 0.004,
+        totalCarbohydrate: 1.2,
+        sugar: 0.7,
+        protein: 10,
+    },
 };
 
 export const getNutritionValue = (name: IngredientName): NutritionalValue => {

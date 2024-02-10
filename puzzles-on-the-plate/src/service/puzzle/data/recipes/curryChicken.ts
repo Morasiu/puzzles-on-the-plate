@@ -11,9 +11,24 @@ export const curryChicken: Recipe =
         slug: "curry-kurczak",
         shortDescription: "Szybkie danie z piersi z kurczaka doprawione curry",
         tags: ["kurczak", "curry", "indyjskie", "szybkie", "nowe"],
+        puzzles: [
+            {
+                name: "Kurczak curry",
+                slug: "curry-kurczak",
+                shortDescription: "Szybkie danie z piersi z kurczaka doprawione curry",
+                ingredients: [
+                    IngredientName.Chicken,
+                    IngredientName.RedPepper,
+                    IngredientName.CoconutCream,
+                    IngredientName.Curry,
+                    IngredientName.Honey,
+                    IngredientName.WhiteRice,
+                ]
+            }
+        ],
         ingredients: [
             {
-                name: "Pierś z kurczaka",
+                name: IngredientName.Chicken,
                 quantity: 500,
                 quantityDescription: "500g piersi z kurczaka",
                 nutritionalValue: getNutritionValue(IngredientName.Chicken),
@@ -29,7 +44,7 @@ export const curryChicken: Recipe =
                 ]
             },
             {
-                name: "Czerwona papryka",
+                name: IngredientName.RedPepper,
                 quantity: 120,
                 quantityDescription: "1 czerwona papryka (ok 120g)",
                 nutritionalValue: getNutritionValue(IngredientName.RedPepper),
@@ -45,7 +60,7 @@ export const curryChicken: Recipe =
                 ],
             },
             {
-                name: "Krem kokosowy",
+                name: IngredientName.CoconutCream,
                 quantity: 476,
                 quantityDescription: "1 krem kokosowy (400ml)",
                 nutritionalValue: getNutritionValue(IngredientName.CoconutCream),
@@ -57,7 +72,7 @@ export const curryChicken: Recipe =
                 ]
             },
             {
-                name: "Curry",
+                name: IngredientName.Curry,
                 quantity: 12,
                 quantityDescription: "2 łyżki curry",
                 nutritionalValue: getNutritionValue(IngredientName.Curry),
@@ -69,7 +84,7 @@ export const curryChicken: Recipe =
                 ]
             },
             {
-                name: "Miód",
+                name: IngredientName.Honey,
                 quantity: 21,
                 quantityDescription: "1 łyżka miodu",
                 nutritionalValue: getNutritionValue(IngredientName.Honey),
@@ -81,7 +96,7 @@ export const curryChicken: Recipe =
                 ]
             },
             {
-                name: "Ryż",
+                name: IngredientName.WhiteRice,
                 quantity: 100,
                 quantityDescription: "1 torebka białego ryżu (100g)",
                 nutritionalValue: getNutritionValue(IngredientName.WhiteRice),
@@ -93,6 +108,18 @@ export const curryChicken: Recipe =
                     {
                         details: "Dodaj ryż na palelnię i wszystko wymieszaj razem.",
                         cookingPhase: CookingPhase.Mixing2
+                    }
+                ]
+            },
+            {
+                name: IngredientName.MapleSyrup,
+                quantity: 12,
+                quantityDescription: "2 łyżki syropu klonowego",
+                nutritionalValue: getNutritionValue(IngredientName.MapleSyrup),
+                instructions: [
+                    {
+                        details: "Dodaj syrop klonowy na patelnię.",
+                        cookingPhase: CookingPhase.Mixing1
                     }
                 ]
             },
