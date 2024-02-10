@@ -10,6 +10,7 @@ import SearchBar from "@/components/common/search/SearchBar.vue";
 import type {Suggestion} from "@/components/common/search/types";
 import {useI18n} from 'vue-i18n'
 import {useToast} from "@/components/common/toast/toast";
+import PuzzleContainer from "@/components/common/puzzle/PuzzleContainer.vue";
 
 const {t} = useI18n();
 
@@ -91,16 +92,24 @@ const frying = computed(() => getCookingPhaseInstructions("Frying"));
 const sauce = computed(() => getCookingPhaseInstructions("Sauce"));
 const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
 
+const currentPuzzleIndex = ref(0);
+const onPuzzleClicked = (index: number) => {
+  currentPuzzleIndex.value = index;
+  currentPuzzle.value = recipe.value?.puzzles[index];
+  if (!currentPuzzle.value) throw Error("Puzzle not found");
+  router.push({name: "recipes", params: {slug: currentPuzzle.value!.slug}});
+};
+
 </script>
 
 <template>
   <div class="container">
     <div v-if="recipe" class="recipe">
       <div class="header">
-        <img :src="recipe.imageUrl" :alt="recipe.name" class="image">
+        <img :src="recipe.imageUrl" :alt="currentPuzzle?.name" class="image">
         <div class="description">
-          <h1>{{ recipe.name }}</h1>
-          <span>{{ recipe.shortDescription }}</span>
+          <h1>{{ currentPuzzle?.name }}</h1>
+          <span>{{ currentPuzzle?.shortDescription }}</span>
           <div class="tags">
             <div v-for="tag in recipe.tags" :key="tag" class="tag">
               {{ tag }}
@@ -113,6 +122,13 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
           <IngredientList :ingredients="currentIngredients" @ingredient-removed="onIngredientRemoved"/>
           <SearchBar v-model="searchValue" :suggestions="unusedIngredients" class="search" @search="onSearched"/>
         </div>
+      </div>
+      <h2>Propozycje</h2>
+      <div class="puzzles">
+        <PuzzleContainer v-for="(puzzle, index) in recipe.puzzles"
+                         :text="puzzle.name" :key="puzzle.slug"
+                         :is-active="currentPuzzleIndex == index"
+                         @click="onPuzzleClicked(index)"/>
       </div>
       <div class="instructions-container">
         <h2>Sposób przygotowania</h2>
@@ -191,6 +207,12 @@ const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
       }
 
     }
+  }
+
+  .puzzles {
+    display: flex;
+    justify-content: center;
+    margin: 1rem;
   }
 
   .instructions-container {

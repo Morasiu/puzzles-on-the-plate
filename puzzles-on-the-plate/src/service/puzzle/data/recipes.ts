@@ -5,16 +5,18 @@ export const getRecipesData = (): Recipe[] => {
     const recipes: Recipe[] = [
         curryChicken
     ];
-    const numberOfSoon = 19;
+    const numberOfSoon = 20 - recipes.length
     for (let i = 0; i < numberOfSoon; i++) {
         recipes.push(
             {
-                name: "Wkrótce",
                 imageUrl: "https://picsum.photos/1000/1000/?random&i=" + i,
-                slug: "soon-" + i,
-                shortDescription: "soon-desc-" + i,
-                tags:["soon"],
-                ingredients: []
+                tags: ["soon"],
+                ingredients: [],
+                puzzles: [
+                    {
+                        name: "Wkrótce", slug: "soon-" + i, shortDescription: "soon", ingredients: []
+                    }
+                ]
             })
     }
 

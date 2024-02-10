@@ -6,10 +6,7 @@ import {CookingPhase} from "@/service/puzzle/data/CookingPhase";
 
 export const curryChicken: Recipe =
     {
-        name: "Kurczak curry",
         imageUrl: getImageUrl("curry-chicken.jpg"),
-        slug: "curry-kurczak",
-        shortDescription: "Szybkie danie z piersi z kurczaka doprawione curry",
         tags: ["kurczak", "curry", "indyjskie", "szybkie", "nowe"],
         puzzles: [
             {
@@ -22,6 +19,32 @@ export const curryChicken: Recipe =
                     IngredientName.CoconutCream,
                     IngredientName.Curry,
                     IngredientName.Honey,
+                    IngredientName.WhiteRice,
+                ]
+            },
+            {
+                name: "Orzechowy kurczak curry",
+                slug: "curry-orzechowe",
+                shortDescription: "Kurczak curry z dodatkiem orzechów",
+                ingredients: [
+                    IngredientName.Chicken,
+                    IngredientName.RedPepper,
+                    IngredientName.CoconutCream,
+                    IngredientName.Curry,
+                    IngredientName.MapleSyrup,
+                    IngredientName.WhiteRice,
+                ]
+            },
+            {
+                name: "Tofu curry",
+                slug: "curry-tofu",
+                shortDescription: "Tofu curry z dodatkiem orzechów",
+                ingredients: [
+                    IngredientName.Tofu,
+                    IngredientName.RedPepper,
+                    IngredientName.CoconutCream,
+                    IngredientName.Curry,
+                    IngredientName.MapleSyrup,
                     IngredientName.WhiteRice,
                 ]
             }
@@ -54,7 +77,7 @@ export const curryChicken: Recipe =
                         cookingPhase: CookingPhase.Preparation1,
                     },
                     {
-                        details: "Przygotowaną paprykę dodaj do kurczaka na patelnię i smaż przez 5 minut.",
+                        details: "Przygotowaną paprykę dodaj na patelnię i smaż przez 5 minut.",
                         cookingPhase: CookingPhase.Frying2,
                     }
                 ],
@@ -120,6 +143,22 @@ export const curryChicken: Recipe =
                     {
                         details: "Dodaj syrop klonowy na patelnię.",
                         cookingPhase: CookingPhase.Mixing1
+                    }
+                ]
+            },
+            {
+                name: IngredientName.Tofu,
+                quantity: 350,
+                quantityDescription: "1 paczka tofu (350g)",
+                nutritionalValue: getNutritionValue(IngredientName.Tofu),
+                instructions: [
+                    {
+                        details: "Pokrój tofu w kostkę.",
+                        cookingPhase: CookingPhase.Preparation1
+                    },
+                    {
+                        details: "Smaż tofu na patelni aż się zarumieni.",
+                        cookingPhase: CookingPhase.Frying1
                     }
                 ]
             },
