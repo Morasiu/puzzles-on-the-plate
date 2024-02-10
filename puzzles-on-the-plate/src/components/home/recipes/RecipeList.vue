@@ -15,8 +15,8 @@ getRecipes().then(response => recipes.value = response.data);
     </h1>
     <div>
       <div v-if="recipes" class="gallery">
-        <div v-for="recipe in recipes" :key="recipe.slug" class="recipe-card">
-          <router-link :to="'/przepisy/' + recipe.slug">
+        <div v-for="recipe in recipes" :key="recipe.name" class="recipe-card">
+          <router-link :to="'/przepisy/' + recipe.puzzles[0].slug">
             <img :src="recipe.imageUrl" :alt="recipe.name" class="photo">
             <div class="name">
               {{ recipe.name }}

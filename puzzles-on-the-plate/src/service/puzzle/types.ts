@@ -4,7 +4,6 @@ import type {IngredientName} from "@/service/puzzle/data/IngredientName";
 export type Recipe = {
     name: string,
     imageUrl: string,
-    slug: string,
     shortDescription: string,
     tags: string[],
     ingredients: Ingredient[],
