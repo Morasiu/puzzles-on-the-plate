@@ -106,10 +106,10 @@ const onPuzzleClicked = (index: number) => {
   <div class="container">
     <div v-if="recipe" class="recipe">
       <div class="header">
-        <img :src="recipe.imageUrl" :alt="recipe.name" class="image">
+        <img :src="recipe.imageUrl" :alt="currentPuzzle?.name" class="image">
         <div class="description">
-          <h1>{{ recipe.name }}</h1>
-          <span>{{ recipe.shortDescription }}</span>
+          <h1>{{ currentPuzzle?.name }}</h1>
+          <span>{{ currentPuzzle?.shortDescription }}</span>
           <div class="tags">
             <div v-for="tag in recipe.tags" :key="tag" class="tag">
               {{ tag }}

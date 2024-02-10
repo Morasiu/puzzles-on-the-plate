@@ -15,11 +15,11 @@ getRecipes().then(response => recipes.value = response.data);
     </h1>
     <div>
       <div v-if="recipes" class="gallery">
-        <div v-for="recipe in recipes" :key="recipe.name" class="recipe-card">
+        <div v-for="recipe in recipes" :key="recipe.puzzles[0].name" class="recipe-card">
           <router-link :to="'/przepisy/' + recipe.puzzles[0].slug">
-            <img :src="recipe.imageUrl" :alt="recipe.name" class="photo">
+            <img :src="recipe.imageUrl" :alt="recipe.puzzles[0].name" class="photo">
             <div class="name">
-              {{ recipe.name }}
+              {{ recipe.puzzles[0].name }}
             </div>
           </router-link>
         </div>

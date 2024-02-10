@@ -6,13 +6,11 @@ import {CookingPhase} from "@/service/puzzle/data/CookingPhase";
 
 export const curryChicken: Recipe =
     {
-        name: "Kurczak curry",
         imageUrl: getImageUrl("curry-chicken.jpg"),
-        shortDescription: "Szybkie danie z piersi z kurczaka doprawione curry",
         tags: ["kurczak", "curry", "indyjskie", "szybkie", "nowe"],
         puzzles: [
             {
-                name: "Miodowy kurczak curry",
+                name: "Kurczak curry",
                 slug: "curry-kurczak",
                 shortDescription: "Szybkie danie z piersi z kurczaka doprawione curry",
                 ingredients: [

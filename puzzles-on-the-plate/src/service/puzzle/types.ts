@@ -2,9 +2,7 @@ import type {CookingPhase} from "@/service/puzzle/data/CookingPhase";
 import type {IngredientName} from "@/service/puzzle/data/IngredientName";
 
 export type Recipe = {
-    name: string,
     imageUrl: string,
-    shortDescription: string,
     tags: string[],
     ingredients: Ingredient[],
     puzzles: Puzzle[],
