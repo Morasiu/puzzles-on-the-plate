@@ -88,8 +88,6 @@ getRecipes().then(response => recipes.value = response.data);
         font-size: 1.25rem;
         text-align: center;
 
-
-
         @media (max-width: 480px) {
           padding: 0rem;
           font-size: 1rem;

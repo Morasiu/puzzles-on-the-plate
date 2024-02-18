@@ -45,10 +45,10 @@ const emit = defineEmits<{
 <style scoped lang="scss">
 
 .jigsaw {
-  width: 10em;
-  height: 10em;
+  width: 11.5rem;
+  height: 10rem;
   position: relative;
-  border-radius: .5em;
+  border-radius: .5rem;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -57,10 +57,10 @@ const emit = defineEmits<{
 
   .background {
     width: 150%;
-    height: 130%;
+    height: 150%;
     position: absolute;
-    top: -30%;
-    left: -10%;
+    top: -45%;
+    left: -0%;
     fill: #ffedcc;
     z-index: -1;
     filter: drop-shadow(1px 1px 1px black);
@@ -73,7 +73,7 @@ const emit = defineEmits<{
     display: block;
     color: black;
     width: 100%;
-    padding: 1rem 0.5rem 1rem 3.5rem;
+    padding: 0rem 0.5rem 2.5rem 5rem;
     font-size:1rem;
     overflow-wrap: break-word;
     text-align: center;

@@ -212,7 +212,10 @@ const onPuzzleClicked = (index: number) => {
   .puzzles {
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    margin: 3rem;
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
   }
 
   .instructions-container {
