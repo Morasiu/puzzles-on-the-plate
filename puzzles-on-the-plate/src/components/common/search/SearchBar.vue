@@ -1,15 +1,15 @@
 <script setup lang="ts">
 
-import {computed} from "vue";
+import {computed, ref} from "vue";
 import type {Suggestion} from "@/components/common/search/types";
-
-
+import { vOnClickOutside } from '@vueuse/components'
 
 const props = defineProps<{
   suggestions: Suggestion[],
 }>();
 
 const model = defineModel<string>({default: ""});
+
 
 const emit = defineEmits<{
   (e: "search", value: Suggestion): void
@@ -23,16 +23,28 @@ const filteredSuggestions = computed(() => {
 });
 
 const onSuggestionClicked = (suggestion: Suggestion) => {
-  model.value = "";
   emit("search", suggestion);
+  model.value = "";
+  isFocused.value = false;
+};
+
+const isFocused = ref(false);
+const showSuggestions = computed(() => model.value.length > 0 || isFocused.value);
+
+const onFocus = () => {
+  isFocused.value = true;
+};
+
+const onClickOutside = () => {
+  isFocused.value = false;
 };
 
 </script>
 
 <template>
-  <div class="search-container">
-    <input type="search" placeholder="np. tofu" class="search" name="q" autocomplete="off" v-model="model">
-    <div v-show="model" class="suggestions">
+  <div class="search-container" v-on-click-outside="onClickOutside">
+    <input type="search" placeholder="np. tofu" class="search" name="q" autocomplete="off" v-model="model" @focus="onFocus">
+    <div v-show="showSuggestions" class="suggestions">
       <div v-for="suggestion in filteredSuggestions" :key="suggestion.label" class="suggestion"
            @click="onSuggestionClicked(suggestion)">
         {{ suggestion.label }}
