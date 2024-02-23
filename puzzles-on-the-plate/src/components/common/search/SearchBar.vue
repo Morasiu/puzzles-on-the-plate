@@ -2,8 +2,7 @@
 
 import {computed, ref} from "vue";
 import type {Suggestion} from "@/components/common/search/types";
-
-
+import { vOnClickOutside } from '@vueuse/components'
 
 const props = defineProps<{
   suggestions: Suggestion[],
@@ -31,24 +30,20 @@ const onSuggestionClicked = (suggestion: Suggestion) => {
 
 const isFocused = ref(false);
 const showSuggestions = computed(() => model.value.length > 0 || isFocused.value);
-const isHovered = ref(false);
 
 const onFocus = () => {
   isFocused.value = true;
 };
 
-const onBlur = () => {
-  if (isHovered.value) {
-    return;
-  }
+const onClickOutside = () => {
   isFocused.value = false;
 };
 
 </script>
 
 <template>
-  <div class="search-container" @mouseenter="isHovered = true" @mouseout="isHovered = false">
-    <input type="search" placeholder="np. tofu" class="search" name="q" autocomplete="off" v-model="model" @focus="onFocus" @blur="onBlur">
+  <div class="search-container" v-on-click-outside="onClickOutside">
+    <input type="search" placeholder="np. tofu" class="search" name="q" autocomplete="off" v-model="model" @focus="onFocus">
     <div v-show="showSuggestions" class="suggestions">
       <div v-for="suggestion in filteredSuggestions" :key="suggestion.label" class="suggestion"
            @click="onSuggestionClicked(suggestion)">
