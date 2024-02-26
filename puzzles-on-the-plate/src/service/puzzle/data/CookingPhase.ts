@@ -19,4 +19,9 @@ export enum CookingPhase {
     Mixing3 = "Mixing3",
     Mixing4 = "Mixing4",
     Mixing5 = "Mixing5",
+    Baking1 = "Baking1",
+    Baking2 = "Baking2",
+    Baking3 = "Baking3",
+    Baking4 = "Baking4",
+    Baking5 = "Baking5",
 }

@@ -20,7 +20,6 @@ const slug = route.params.slug as string;
 
 const recipe = ref<Recipe>()
 const currentPuzzle = ref<Puzzle>();
-const servings = ref(2);
 const {toast} = useToast();
 
 getRecipe(slug).then(x => {
@@ -30,6 +29,10 @@ getRecipe(slug).then(x => {
   }
   recipe.value = x.data;
   currentPuzzle.value = x.data?.puzzles[0];
+});
+
+const servings = computed(() => {
+  return recipe.value?.servings ?? 1;
 });
 
 const currentInstructions = computed(() => {
@@ -89,6 +92,7 @@ const onSearched = (suggestion: Suggestion) => {
 
 const preparation = computed(() => getCookingPhaseInstructions("Preparation"));
 const frying = computed(() => getCookingPhaseInstructions("Frying"));
+const baking = computed(() => getCookingPhaseInstructions("Baking"));
 const sauce = computed(() => getCookingPhaseInstructions("Sauce"));
 const mixing = computed(() => getCookingPhaseInstructions("Mixing"));
 
@@ -108,7 +112,7 @@ const onPuzzleClicked = (index: number) => {
       <div class="header">
         <img :src="recipe.imageUrl" :alt="currentPuzzle?.name" class="image">
         <div class="description">
-          <h1>{{ currentPuzzle?.name }}</h1>
+          <h1 class="title">{{ currentPuzzle?.name }}</h1>
           <span>{{ currentPuzzle?.shortDescription }}</span>
           <div class="tags">
             <div v-for="tag in recipe.tags" :key="tag" class="tag">
@@ -134,13 +138,14 @@ const onPuzzleClicked = (index: number) => {
         <h2>Sposób przygotowania</h2>
         <CookingPhaseInstructions v-if="preparation.length > 0" title="Przygotowanie" :instructions="preparation"/>
         <CookingPhaseInstructions v-if="frying.length > 0" title="Smażenie" :instructions="frying"/>
+        <CookingPhaseInstructions v-if="baking.length > 0" title="Pieczenie" :instructions="baking"/>
         <CookingPhaseInstructions v-if="sauce.length > 0" title="Sos" :instructions="sauce"/>
         <CookingPhaseInstructions v-if="mixing.length > 0" title="Mieszanie" :instructions="mixing"/>
         <h3>
           Gotowe! Smaczenego!
         </h3>
       </div>
-      <NutritionValues :ingredients="currentIngredients"/>
+      <NutritionValues :servings="servings" :ingredients="currentIngredients"/>
     </div>
     <div v-else>
       Ładowanie...
@@ -162,6 +167,7 @@ const onPuzzleClicked = (index: number) => {
 
   .header {
     display: flex;
+    gap: 1rem;
     @media (max-width: 480px) {
       flex-direction: column;
     }
@@ -181,6 +187,10 @@ const onPuzzleClicked = (index: number) => {
       align-items: center;
       justify-content: center;
       min-width: 50%;
+
+      .title {
+        text-align: center;
+      }
 
       .search {
         margin-top: 1rem;
