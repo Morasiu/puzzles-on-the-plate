@@ -190,6 +190,7 @@ const onPuzzleClicked = (index: number) => {
 
       .title {
         text-align: center;
+        margin: 1rem;
       }
 
       .search {
@@ -199,6 +200,7 @@ const onPuzzleClicked = (index: number) => {
 
       .tags {
         display: flex;
+        flex-direction: row;
         gap: 1rem;
         margin-top: 1rem;
 
