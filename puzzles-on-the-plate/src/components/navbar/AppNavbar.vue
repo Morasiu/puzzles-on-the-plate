@@ -6,8 +6,10 @@ import {faBars} from "@fortawesome/free-solid-svg-icons";
 
 <template>
   <header class="header">
-    <AppLogo class="logo" />
-    <span class="name">Puzzle na talerzu</span>
+    <RouterLink to="/" class="home">
+      <AppLogo class="logo"/>
+      <span class="name">Puzzle na talerzu</span>
+    </RouterLink>
     <input type="search" placeholder="np. kurczak curry" class="search">
     <button class="toggle" aria-label="Show/Hide menu">
       <font-awesome-icon :icon="faBars"></font-awesome-icon>
@@ -29,18 +31,31 @@ import {faBars} from "@fortawesome/free-solid-svg-icons";
   flex-direction: row;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
-  .logo {
-    width: auto;
-    height: 100%;
-  }
-
-  .name {
-    font-family: 'Roboto Slab', serif;
+  .home {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    text-decoration: none;
+    color: black;
     @media (max-width: 480px) {
-      text-align: center;
-      line-height: 1;
+      gap: 0.25rem;
+    }
+    .logo {
+      width: 3rem;
+      height: 100%;
+    }
+
+    .name {
+      font-family: 'Roboto Slab', serif;
+      min-width: fit-content;
+      @media (max-width: 480px) {
+        min-width: 4rem;
+        text-align: center;
+        line-height: 1;
+      }
     }
   }
+
 
   input[type=search]:focus {
     border: 1px solid var(--primary) !important;

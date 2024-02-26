@@ -18,8 +18,10 @@ getRecipes().then(response => recipes.value = response.data);
         <div v-for="recipe in recipes" :key="recipe.puzzles[0].name" class="recipe-card">
           <router-link :to="'/przepisy/' + recipe.puzzles[0].slug">
             <img :src="recipe.imageUrl" :alt="recipe.puzzles[0].name" class="photo">
-            <div class="name">
+            <div class="name-container">
+              <span class="name">
               {{ recipe.puzzles[0].name }}
+              </span>
             </div>
           </router-link>
         </div>
@@ -66,31 +68,40 @@ getRecipes().then(response => recipes.value = response.data);
       -moz-box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
       box-shadow: 0px 0px 8px 0px rgba(66, 68, 90, 1);
       background-color: var(--color-background);
+
       @media (max-width: 480px) {
         width: 10rem;
       }
       a {
         all: unset;
         cursor: pointer;
+        display: grid;
+        grid-template-rows: 4fr 1fr;
       }
 
       .photo {
-        height: 80%;
         width: 100%;
+        height: 25rem;
+        object-fit: cover;
+        @media (max-width: 480px) {
+          height: 12rem;
+        }
       }
 
-      .name {
+      .name-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        padding: 1rem;
         font-family: 'Roboto Slab', serif;
-        font-size: 1.25rem;
         text-align: center;
-
-        @media (max-width: 480px) {
-          padding: 0rem;
-          font-size: 1rem;
+        container-type: size;
+        resize: horizontal;
+        font-size: 1.5rem;
+        .name {
+          text-overflow: fade;
+          @media (max-width: 480px) {
+            font-size: 0.75rem;
+          }
         }
       }
     }
