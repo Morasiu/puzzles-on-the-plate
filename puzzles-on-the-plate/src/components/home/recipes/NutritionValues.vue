@@ -5,9 +5,8 @@ import {computed} from "vue";
 
 const props = defineProps<{
   ingredients: Ingredient[],
+  servings: number
 }>();
-
-const servings = 2;
 
 const weight = computed(() => props.ingredients
     .reduce((sum, b) => sum + b.quantity, 0));
@@ -38,7 +37,7 @@ const getNutritionValuePerServing = (name: string, servings: number) => {
     <table>
       <tr>
         <th class="name">Wartość odżywcza</th>
-        <th class="servings">w porcji ({{ weight / 2 }} g)</th>
+        <th class="servings">w porcji ({{ Math.floor(weight / servings) }} g)</th>
         <th class="hundred-g">w 100 g</th>
       </tr>
       <tr>

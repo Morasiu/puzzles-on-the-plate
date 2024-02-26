@@ -8,6 +8,7 @@ export const curryChicken: Recipe =
     {
         imageUrl: getImageUrl("curry-chicken.jpg"),
         tags: ["kurczak", "curry", "indyjskie", "szybkie", "nowe"],
+        servings: 2,
         puzzles: [
             {
                 name: "Kurczak curry",

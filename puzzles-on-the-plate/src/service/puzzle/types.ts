@@ -4,6 +4,7 @@ import type {IngredientName} from "@/service/puzzle/data/IngredientName";
 export type Recipe = {
     imageUrl: string,
     tags: string[],
+    servings: number,
     ingredients: Ingredient[],
     puzzles: Puzzle[],
 }
