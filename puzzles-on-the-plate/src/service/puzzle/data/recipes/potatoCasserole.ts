@@ -38,7 +38,7 @@ export const potatoCasserole: Recipe =
                         cookingPhase: CookingPhase.Preparation1,
                     },
                     {
-                        details: "Wymieszaj ziemniaki misce z marynatą i dodaj do naczynia żaroodpornego. Następnie piecz przez 25 min.",
+                        details: "Wymieszaj ziemniaki misce z marynatą i dodaj do naczynia żaroodpornego. Następnie piecz przez 25 min w 200 stopniach.",
                         cookingPhase: CookingPhase.Baking1,
                     }
                 ]
