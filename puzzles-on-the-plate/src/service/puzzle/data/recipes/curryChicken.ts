@@ -62,7 +62,7 @@ export const curryChicken: Recipe =
                         cookingPhase: CookingPhase.Preparation1,
                     },
                     {
-                        details: "Dodaj kurczaka na dużą patelnię (najlepiej patelnie typu wok) i podsmaż aż nie będzie już różowy.",
+                        details: "Dodaj kurczaka na dużą patelnię (najlepiej patelnie typu wok) i podsmaż na tłuszczu aż nie będzie już różowy.",
                         cookingPhase: CookingPhase.Frying1,
                     }
                 ]
