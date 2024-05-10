@@ -48,6 +48,22 @@ export const curryChicken: Recipe =
                     IngredientName.MapleSyrup,
                     IngredientName.WhiteRice,
                 ]
+            },
+            {
+                name: "Warzywne curry",
+                slug: "curry-warzywne",
+                imageUrl: getImageUrl("curry-vegetables.jpg"),
+                shortDescription: "Warzywne curry",
+                ingredients: [
+                    IngredientName.RedPepper,
+                    IngredientName.CoconutCream,
+                    IngredientName.Curry,
+                    IngredientName.MapleSyrup,
+                    IngredientName.WhiteRice,
+                    IngredientName.SweetPotato,
+                    IngredientName.Carrot,
+                    IngredientName.Onion,
+                ]
             }
         ],
         ingredients: [
@@ -159,6 +175,54 @@ export const curryChicken: Recipe =
                     },
                     {
                         details: "Smaż tofu na patelni aż się zarumieni.",
+                        cookingPhase: CookingPhase.Frying1
+                    }
+                ]
+            },
+            {
+                name: IngredientName.SweetPotato,
+                quantity: 400,
+                quantityDescription: "batat (400g)",
+                nutritionalValue: getNutritionValue(IngredientName.SweetPotato),
+                instructions: [
+                    {
+                        details: "Pokrój batata w kostkę.",
+                        cookingPhase: CookingPhase.Preparation1
+                    },
+                    {
+                        details: "Smaż batata na patelni prze około 5 min.",
+                        cookingPhase: CookingPhase.Frying1
+                    }
+                ]
+            },
+            {
+                name: IngredientName.Onion,
+                quantity: 150,
+                quantityDescription: "cebula (150g)",
+                nutritionalValue: getNutritionValue(IngredientName.Onion),
+                instructions: [
+                    {
+                        details: "Pokrój cebulę w kostkę.",
+                        cookingPhase: CookingPhase.Preparation1
+                    },
+                    {
+                        details: "Smaż cebulę na patelni aż się zeszkli (około 3 min).",
+                        cookingPhase: CookingPhase.Frying1
+                    }
+                ]
+            },
+            {
+                name: IngredientName.Carrot,
+                quantity: 200,
+                quantityDescription: "marchew (200g)",
+                nutritionalValue: getNutritionValue(IngredientName.Carrot),
+                instructions: [
+                    {
+                        details: "Pokrój marchew w kostkę.",
+                        cookingPhase: CookingPhase.Preparation1
+                    },
+                    {
+                        details: "Smaż marchew na patelni prze około 2 min.",
                         cookingPhase: CookingPhase.Frying1
                     }
                 ]

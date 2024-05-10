@@ -106,6 +106,30 @@ const nutritionValues: { [key in IngredientName]: NutritionalValue } = {
         sugar: 1,
         protein: 6,
     },
+    SweetPotato: {
+        calories: 90,
+        totalFat: 0.2,
+        sodium: 0.36,
+        totalCarbohydrate: 21,
+        sugar: 6.5,
+        protein: 2,
+    },
+    Onion: {
+        calories: 44,
+        totalFat: 0.2,
+        sodium: 0.3,
+        totalCarbohydrate: 10,
+        sugar: 4.7,
+        protein: 1.4,
+    },
+    Carrot: {
+        calories: 35,
+        totalFat: 0.2,
+        sodium: 0.58,
+        totalCarbohydrate: 8.2,
+        sugar: 3.5,
+        protein: 0.8,
+    }
 };
 
 export const getNutritionValue = (name: IngredientName): NutritionalValue => {

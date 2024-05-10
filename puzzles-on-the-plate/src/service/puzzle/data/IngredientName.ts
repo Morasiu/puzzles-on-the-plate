@@ -14,4 +14,7 @@ export enum IngredientName {
     Salt = "Salt",
     SweetPepper = "SweetPepper",
     MozzarellaCheese = "MozzarellaCheese",
+    SweetPotato = "SweetPotato",
+    Onion = "Onion",
+    Carrot = "Carrot",
 }
