@@ -28,15 +28,16 @@ export const potatoCasserole: Recipe =
             {
                 name: "Serowa zapiekanka",
                 slug: "potato-casserole-cheese",
+                imageUrl: getImageUrl("potato-casserole-cheese.jpg"),
                 shortDescription: "Zapiekanka ziemniaczana z serem i brokułami",
                 ingredients: [
                     IngredientName.Potato,
-                    IngredientName.Salt,
                     IngredientName.Butter,
                     IngredientName.Mustard,
                     IngredientName.WheatFlour,
                     IngredientName.Milk,
                     IngredientName.CheddarCheese,
+                    IngredientName.Broccoli,
                 ]
             },
         ],
@@ -52,8 +53,12 @@ export const potatoCasserole: Recipe =
                         cookingPhase: CookingPhase.Preparation1,
                     },
                     {
-                        details: "Wymieszaj ziemniaki misce z marynatą i dodaj do naczynia żaroodpornego. Następnie piecz przez 25 min w 200 stopniach.",
-                        cookingPhase: CookingPhase.Baking1,
+                        details: "Dodaj ziemniaki do naczynia żaroodpornego.",
+                        cookingPhase: CookingPhase.Preparation5,
+                    },
+                    {
+                        details: "Następnie piecz całość przez 25 min w 200 stopniach.",
+                        cookingPhase: CookingPhase.Baking3,
                     }
                 ]
             },
@@ -96,6 +101,10 @@ export const potatoCasserole: Recipe =
                         details: "Wlej oliwę do miski na marynatę",
                         cookingPhase: CookingPhase.Preparation2,
                     },
+                    {
+                        details: "Wymieszaj ziemniaki w misce z marynatą",
+                        cookingPhase: CookingPhase.Preparation4,
+                    }
                 ]
             },
             {
@@ -192,6 +201,10 @@ export const potatoCasserole: Recipe =
                         details: "Stopniowo dodawaj mleko do garka i mieszaj, aż sos zgęstnieje.",
                         cookingPhase: CookingPhase.Sauce2,
                     },
+                    {
+                        details: "Piecz zapiekankę przez dodatkowe 30 minut.",
+                        cookingPhase: CookingPhase.Baking3,
+                    },
                 ]
             },
             {
@@ -202,10 +215,30 @@ export const potatoCasserole: Recipe =
                 instructions: [
                     {
                         details: "Jeśli sos się zagotuje, odstaw z ognia i dodaj starty ser cheddar. Mieszaj, aż ser się rozpuści.",
-                        cookingPhase: CookingPhase.Preparation2,
+                        cookingPhase: CookingPhase.Sauce3,
+                    },
+                    {
+                        details: "Dodaj sos do zapiekanki. Postraj się, aby nic nie wystawało ponad sos.",
+                        cookingPhase: CookingPhase.Sauce5,
                     },
                 ]
             },
+            {
+                name: IngredientName.Broccoli,
+                quantity: 500,
+                quantityDescription: "500g brokułów",
+                nutritionalValue: getNutritionValue(IngredientName.Broccoli),
+                instructions: [
+                    {
+                        details: "Umyj brokuły i podziel na różyczki.",
+                        cookingPhase: CookingPhase.Preparation3,
+                    },
+                    {
+                        details: "Następnie dodaj brokuły do naczynia żaroodpornego i wymieszaj.",
+                        cookingPhase: CookingPhase.Preparation5,
+                    },
+                ]
+            }
         ]
     }
 ;

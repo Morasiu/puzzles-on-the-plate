@@ -22,4 +22,5 @@ export enum IngredientName {
     Mustard = "Mustard",
     WheatFlour = "WheatFlour",
     Milk = "Milk",
+    Broccoli = "Broccoli",
 }

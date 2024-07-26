@@ -177,6 +177,14 @@ const nutritionValues: { [key in IngredientName]: NutritionalValue } = {
         sugar: 5,
         protein: 3,
     },
+    Broccoli: {
+        calories: 34,
+        totalFat: 0.4,
+        sodium: 0.33,
+        totalCarbohydrate: 7,
+        sugar: 1.5,
+        protein: 2.8,
+    },
 };
 
 export const getNutritionValue = (name: IngredientName): NutritionalValue => {

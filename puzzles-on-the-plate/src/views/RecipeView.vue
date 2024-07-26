@@ -142,8 +142,8 @@ const imageUrl = computed(() => {
         <h2>Sposób przygotowania</h2>
         <CookingPhaseInstructions v-if="preparation.length > 0" title="Przygotowanie" :instructions="preparation"/>
         <CookingPhaseInstructions v-if="frying.length > 0" title="Smażenie" :instructions="frying"/>
-        <CookingPhaseInstructions v-if="baking.length > 0" title="Pieczenie" :instructions="baking"/>
         <CookingPhaseInstructions v-if="sauce.length > 0" title="Sos" :instructions="sauce"/>
+        <CookingPhaseInstructions v-if="baking.length > 0" title="Pieczenie" :instructions="baking"/>
         <CookingPhaseInstructions v-if="mixing.length > 0" title="Mieszanie" :instructions="mixing"/>
         <h3>
           Gotowe! Smaczenego!
