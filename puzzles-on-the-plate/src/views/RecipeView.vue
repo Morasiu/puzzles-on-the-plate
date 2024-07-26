@@ -104,13 +104,17 @@ const onPuzzleClicked = (index: number) => {
   router.push({name: "recipes", params: {slug: currentPuzzle.value!.slug}});
 };
 
+const imageUrl = computed(() => {
+  return currentPuzzle.value?.imageUrl ?? recipe.value?.imageUrl;
+});
+
 </script>
 
 <template>
   <div class="container">
     <div v-if="recipe" class="recipe">
       <div class="header">
-        <img :src="recipe.imageUrl" :alt="currentPuzzle?.name" class="image">
+        <img :src="imageUrl" :alt="currentPuzzle?.name" class="image">
         <div class="description">
           <h1 class="title">{{ currentPuzzle?.name }}</h1>
           <span>{{ currentPuzzle?.shortDescription }}</span>
@@ -138,8 +142,8 @@ const onPuzzleClicked = (index: number) => {
         <h2>Sposób przygotowania</h2>
         <CookingPhaseInstructions v-if="preparation.length > 0" title="Przygotowanie" :instructions="preparation"/>
         <CookingPhaseInstructions v-if="frying.length > 0" title="Smażenie" :instructions="frying"/>
-        <CookingPhaseInstructions v-if="baking.length > 0" title="Pieczenie" :instructions="baking"/>
         <CookingPhaseInstructions v-if="sauce.length > 0" title="Sos" :instructions="sauce"/>
+        <CookingPhaseInstructions v-if="baking.length > 0" title="Pieczenie" :instructions="baking"/>
         <CookingPhaseInstructions v-if="mixing.length > 0" title="Mieszanie" :instructions="mixing"/>
         <h3>
           Gotowe! Smaczenego!

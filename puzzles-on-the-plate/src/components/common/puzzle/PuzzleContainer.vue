@@ -54,6 +54,8 @@ const emit = defineEmits<{
   justify-content: center;
   align-items: center;
   container-type: inline-size;
+  -webkit-tap-highlight-color: transparent;
+
 
   .background {
     width: 150%;

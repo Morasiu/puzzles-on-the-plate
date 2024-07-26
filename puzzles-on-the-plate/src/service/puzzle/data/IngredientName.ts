@@ -14,4 +14,13 @@ export enum IngredientName {
     Salt = "Salt",
     SweetPepper = "SweetPepper",
     MozzarellaCheese = "MozzarellaCheese",
+    SweetPotato = "SweetPotato",
+    Onion = "Onion",
+    Carrot = "Carrot",
+    CheddarCheese = "CheddarCheese",
+    Butter = "Butter",
+    Mustard = "Mustard",
+    WheatFlour = "WheatFlour",
+    Milk = "Milk",
+    Broccoli = "Broccoli",
 }

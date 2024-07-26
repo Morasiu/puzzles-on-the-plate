@@ -11,7 +11,7 @@ export const potatoCasserole: Recipe =
         servings: 4,
         puzzles: [
             {
-                name: "Zapiekanka ziemiaczana z kurczakiem",
+                name: "Zapiekanka z kurczakiem",
                 slug: "potato-casserole",
                 shortDescription: "Szybkie danie z ziemniaków i kurczakiem",
                 ingredients: [
@@ -25,6 +25,21 @@ export const potatoCasserole: Recipe =
                     IngredientName.MozzarellaCheese,
                 ]
             },
+            {
+                name: "Serowa zapiekanka",
+                slug: "potato-casserole-cheese",
+                imageUrl: getImageUrl("potato-casserole-cheese.jpg"),
+                shortDescription: "Zapiekanka ziemniaczana z serem i brokułami",
+                ingredients: [
+                    IngredientName.Potato,
+                    IngredientName.Butter,
+                    IngredientName.Mustard,
+                    IngredientName.WheatFlour,
+                    IngredientName.Milk,
+                    IngredientName.CheddarCheese,
+                    IngredientName.Broccoli,
+                ]
+            },
         ],
         ingredients: [
             {
@@ -34,12 +49,16 @@ export const potatoCasserole: Recipe =
                 nutritionalValue: getNutritionValue(IngredientName.Potato),
                 instructions: [
                     {
-                        details: "Umyj ziemniaki i pokrój w kostkę ok 1.5cm.",
+                        details: "Umyj ziemniaki i pokrój w talarki ok 1.5cm.",
                         cookingPhase: CookingPhase.Preparation1,
                     },
                     {
-                        details: "Wymieszaj ziemniaki misce z marynatą i dodaj do naczynia żaroodpornego. Następnie piecz przez 25 min w 200 stopniach.",
-                        cookingPhase: CookingPhase.Baking1,
+                        details: "Dodaj ziemniaki do naczynia żaroodpornego.",
+                        cookingPhase: CookingPhase.Preparation5,
+                    },
+                    {
+                        details: "Następnie piecz całość przez 25 min w 200 stopniach.",
+                        cookingPhase: CookingPhase.Baking3,
                     }
                 ]
             },
@@ -82,6 +101,10 @@ export const potatoCasserole: Recipe =
                         details: "Wlej oliwę do miski na marynatę",
                         cookingPhase: CookingPhase.Preparation2,
                     },
+                    {
+                        details: "Wymieszaj ziemniaki w misce z marynatą",
+                        cookingPhase: CookingPhase.Preparation4,
+                    }
                 ]
             },
             {
@@ -132,6 +155,90 @@ export const potatoCasserole: Recipe =
                     },
                 ]
             },
+            {
+                name: IngredientName.Butter,
+                quantity: 35,
+                quantityDescription: "1.5 łyżki masła (ok 35g)",
+                nutritionalValue: getNutritionValue(IngredientName.Butter),
+                instructions: [
+                    {
+                        details: "Rozpuść masło w garku.",
+                        cookingPhase: CookingPhase.Sauce1,
+                    },
+                ]
+            },
+            {
+                name: IngredientName.Mustard,
+                quantity: 5,
+                quantityDescription: "1 łyżeczka musztardy",
+                nutritionalValue: getNutritionValue(IngredientName.Mustard),
+                instructions: [
+                    {
+                        details: "Dodaj musztardę do garka i wymieszaj.",
+                        cookingPhase: CookingPhase.Sauce2,
+                    },
+                ]
+            },
+            {
+                name: IngredientName.WheatFlour,
+                quantity: 30,
+                quantityDescription: "2 płaskie łyżki mąki pszennej",
+                nutritionalValue: getNutritionValue(IngredientName.WheatFlour),
+                instructions: [
+                    {
+                        details: "Dodaj mąkę do garka i wymieszaj.",
+                        cookingPhase: CookingPhase.Sauce2,
+                    },
+                ]
+            },
+            {
+                name: IngredientName.Milk,
+                quantity: 600,
+                quantityDescription: "600ml mleka",
+                nutritionalValue: getNutritionValue(IngredientName.Milk),
+                instructions: [
+                    {
+                        details: "Stopniowo dodawaj mleko do garka i mieszaj, aż sos zgęstnieje.",
+                        cookingPhase: CookingPhase.Sauce2,
+                    },
+                    {
+                        details: "Piecz zapiekankę przez dodatkowe 30 minut.",
+                        cookingPhase: CookingPhase.Baking3,
+                    },
+                ]
+            },
+            {
+                name: IngredientName.CheddarCheese,
+                quantity: 300,
+                quantityDescription: "300g startego sera cheddar",
+                nutritionalValue: getNutritionValue(IngredientName.CheddarCheese),
+                instructions: [
+                    {
+                        details: "Jeśli sos się zagotuje, odstaw z ognia i dodaj starty ser cheddar. Mieszaj, aż ser się rozpuści.",
+                        cookingPhase: CookingPhase.Sauce3,
+                    },
+                    {
+                        details: "Dodaj sos do zapiekanki. Postraj się, aby nic nie wystawało ponad sos.",
+                        cookingPhase: CookingPhase.Sauce5,
+                    },
+                ]
+            },
+            {
+                name: IngredientName.Broccoli,
+                quantity: 500,
+                quantityDescription: "500g brokułów",
+                nutritionalValue: getNutritionValue(IngredientName.Broccoli),
+                instructions: [
+                    {
+                        details: "Umyj brokuły i podziel na różyczki.",
+                        cookingPhase: CookingPhase.Preparation3,
+                    },
+                    {
+                        details: "Następnie dodaj brokuły do naczynia żaroodpornego i wymieszaj.",
+                        cookingPhase: CookingPhase.Preparation5,
+                    },
+                ]
+            }
         ]
     }
 ;

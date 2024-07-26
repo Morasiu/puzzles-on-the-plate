@@ -13,6 +13,7 @@ export type Puzzle = {
     name: string,
     slug: string,
     shortDescription: string,
+    imageUrl?: string,
     ingredients: IngredientName[],
 }
 
